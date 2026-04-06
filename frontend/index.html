@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Profiler</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sentence Profiler</h1>
+            <p>Analyze sentence length and grammatical complexity with precision.</p>
+        </header>
+
+        <main class="input-section">
+            <div class="input-group">
+                <label for="text-input">Direct Text Input:</label>
+                <textarea id="text-input" placeholder="Paste your text here for analysis..."></textarea>
+            </div>
+            
+            <div class="divider">OR</div>
+            
+            <div class="input-group file-group">
+                <label for="file-upload" class="file-label">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    Upload Text File
+                </label>
+                <input type="file" id="file-upload" accept=".txt,.doc,.docx,.pdf">
+                <span id="file-name">No file selected</span>
+            </div>
+
+            <button id="analyze-btn" class="primary-btn">Analyze Text</button>
+        </main>
+
+        <section id="results-section" class="hidden">
+            <h2>Analysis Results</h2>
+            <div id="results-content" class="results-card"></div>
+            
+            <div class="download-actions">
+                <button id="download-txt" class="secondary-btn" disabled>Download Text Report</button>
+                <button id="download-docx" class="secondary-btn" disabled>Download Word Report</button>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
