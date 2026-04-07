@@ -2,21 +2,10 @@ import re
 import os
 import nltk
 
-# Configure NLTK to use /tmp/ directory for downloads (Vercel Serverless environment limits)
-nltk_data_dir = '/tmp/nltk_data'
-os.makedirs(nltk_data_dir, exist_ok=True)
+# Configure NLTK to use the bundled nltk_data directory inside the backend folder
+nltk_data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../nltk_data'))
 if nltk_data_dir not in nltk.data.path:
     nltk.data.path.append(nltk_data_dir)
-
-# Download required modules quietly
-try:
-    nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
-    nltk.download('punkt_tab', download_dir=nltk_data_dir, quiet=True)
-    nltk.download('averaged_perceptron_tagger', download_dir=nltk_data_dir, quiet=True)
-    nltk.download('averaged_perceptron_tagger_eng', download_dir=nltk_data_dir, quiet=True)
-    nltk.download('wordnet', download_dir=nltk_data_dir, quiet=True)
-except Exception:
-    pass
 
 def clean_input(raw_text: str) -> str:
     """
